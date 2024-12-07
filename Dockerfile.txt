@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+
+RUN apt-get update && \
+    apt-get install -y vim nginx && \
+    apt-get clean
+
+COPY app_script.sh /usr/local/bin/app_script.sh
+
+RUN chmod +x /usr/local/bin/app_script.sh
+
+CMD ["/usr/local/bin/app_script.sh"]
